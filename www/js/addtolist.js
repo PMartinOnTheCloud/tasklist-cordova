@@ -4,13 +4,15 @@ $('document').ready(function(){
     
     $('button#addtask').on('click',function(){
 			var tasktoadd = $('#tasktoadd').val();
+            if (tasktoadd.match(/^\s*$/) || tasktoadd == "") {
+                return false;
+            }
             var tasksLSKeys = Object.keys(tasksLS);
 
             var tasksLSIndex = tasksLSKeys.length==0 ? 0 : null ;
 
             for(let value of tasksLSKeys) {
-                console.log("hola");
-                var tasksLSIndex = tasksLSIndex < value || tasksLSIndex==null ? parseInt(value)+1 : tasksLSIndex; 
+                var tasksLSIndex = tasksLSIndex <= value || tasksLSIndex==null ? parseInt(value)+1 : tasksLSIndex; 
             }
 
             tasksLS[tasksLSIndex] = tasktoadd ;
