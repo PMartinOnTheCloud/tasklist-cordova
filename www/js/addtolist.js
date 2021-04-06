@@ -21,7 +21,7 @@ $('document').ready(function(){
             $('li > a').click({"tasksLS":tasksLS},deleteTask);
 
             localStorage.setItem('tasks',JSON.stringify(tasksLS));
-
+            $('#tasktoadd').val("");
     });
 
     function deleteTask(event) {
